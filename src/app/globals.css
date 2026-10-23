@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --saffron: #f59e0b; /* amber-500 */
+  --saffron-hover: #d97706; /* amber-600 */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--saffron);
+}
+
+/* Game-specific utilities */
+.game-container {
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  touch-action: none;
+}
+
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+/* Smooth transitions globally */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Saffron arcade theme */
+body { font-family: "Trebuchet MS", Arial, sans-serif; }
+.spice-page {
+  background: radial-gradient(ellipse at 15% 0%, #74351e 0%, transparent 48%),
+    radial-gradient(ellipse at 95% 50%, #423418 0%, transparent 55%), #21140f;
+}
+.spice-hero {
+  background: radial-gradient(circle at 50% 0%, #a44e25 0%, #4a2418 55%, #271711 100%);
+  border-bottom: 2px solid #d89042;
+}
+.spice-hero::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .16;
+  background-image: radial-gradient(#ffd08a 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.spice-panel { background: linear-gradient(145deg, #44291d, #2b1c16); border-color: #a96b3a; }
+.spice-heading { color: #fff1d3; text-shadow: 0 4px 0 #81371a; letter-spacing: -.035em; }
+button, a { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 3px solid #ffd38a; outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition-duration: 0ms !important; animation-duration: 0ms !important; }
+}
